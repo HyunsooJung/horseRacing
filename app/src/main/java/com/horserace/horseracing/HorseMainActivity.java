@@ -93,7 +93,11 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
         binding.startBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                binding.textBtn.setVisibility(View.INVISIBLE);
+                binding.textBtn.setEnabled(false);//입력버튼 비활성화
+                binding.minusBtn.setEnabled(false);//마이너스 버튼 비활성화
+                binding.plusBtn.setEnabled(false);//플러스 버튼 비활성화
+                binding.startBtn.setEnabled(false);//시작 버튼 비활성화
+
                 horseAdapter.startHorse();
             }
         });
@@ -112,7 +116,10 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
                 alert.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        binding.textBtn.setVisibility(View.VISIBLE);
+                        binding.textBtn.setEnabled(true);
+                        binding.minusBtn.setEnabled(true);//마이너스 버튼 활성화
+                        binding.plusBtn.setEnabled(true);//플러스 버튼 활성화
+                        binding.startBtn.setEnabled(true);//시작 버튼 활성화
                         horseAdapter.onStop();
                         horseAdapter.allDeleteItem();
                         binding.numberText.setText("2");
@@ -191,7 +198,10 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
         alert.setPositiveButton("다시시작", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                binding.textBtn.setVisibility(View.VISIBLE);
+                binding.textBtn.setEnabled(true);
+                binding.minusBtn.setEnabled(true);//마이너스 버튼 활성화
+                binding.plusBtn.setEnabled(true);//플러스 버튼 활성화
+                binding.startBtn.setEnabled(true);//시작 버튼 활성화
                 horseAdapter.allDeleteItem();
                 binding.numberText.setText("2");
                 num = 2;

@@ -66,7 +66,7 @@ public class HorseAdapter extends RecyclerView.Adapter<HorseAdapter.CustomViewHo
         runnable = new Runnable() {
             @Override
             public void run() {
-                for (HorseData item : items) {
+                for (HorseData item : new ArrayList<>(items)) {
                     int distance = item.getDistance(); // 이동거리
                     boolean isStopped = item.isStopped(); //넘어진말 여부
                     int retryCnt = item.getRetryCnt(); //넘어진말 멈춤위함
