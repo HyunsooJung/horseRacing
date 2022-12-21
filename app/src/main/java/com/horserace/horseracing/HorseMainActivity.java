@@ -37,6 +37,8 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
         horseAdapter = new HorseAdapter(horseDataArrayList,this, this);
         binding.horseRecyclerview.setAdapter(horseAdapter);
 
+        binding.stopBtn.setEnabled(false); //중지버튼 비활성화
+
         addHorse();
         addHorse();
 
@@ -93,6 +95,7 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
         binding.startBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                binding.stopBtn.setEnabled(true); //중지버튼 활성화
                 binding.textBtn.setEnabled(false);//입력버튼 비활성화
                 binding.minusBtn.setEnabled(false);//마이너스 버튼 비활성화
                 binding.plusBtn.setEnabled(false);//플러스 버튼 비활성화
@@ -116,6 +119,7 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
                 alert.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        binding.stopBtn.setEnabled(false); //중지버튼 비활성화
                         binding.textBtn.setEnabled(true);
                         binding.minusBtn.setEnabled(true);//마이너스 버튼 활성화
                         binding.plusBtn.setEnabled(true);//플러스 버튼 활성화
@@ -198,6 +202,7 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
         alert.setPositiveButton("다시시작", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                binding.stopBtn.setEnabled(false); //중지버튼 비활성화
                 binding.textBtn.setEnabled(true);
                 binding.minusBtn.setEnabled(true);//마이너스 버튼 활성화
                 binding.plusBtn.setEnabled(true);//플러스 버튼 활성화
