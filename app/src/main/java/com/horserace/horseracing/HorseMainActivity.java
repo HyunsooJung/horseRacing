@@ -1,6 +1,7 @@
 package com.horserace.horseracing;
 
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +30,7 @@ public class HorseMainActivity extends AppCompatActivity implements OnItemClick{
         super.onCreate(savedInstanceState);
         binding = HorseMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         linearLayoutManager = new LinearLayoutManager(this);
         binding.horseRecyclerview.setLayoutManager(linearLayoutManager);
